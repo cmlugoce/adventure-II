@@ -4,6 +4,7 @@ class TrailsController < ApplicationController
   
   def index
     @trails = Trail.all
+  end 
   
   def new
     @trail = Trail.new

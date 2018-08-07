@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   resources :trails
 
  end 
-  resource :trails
-  # post "/trails/new", to: "trails#show"
+  
  resources :parks, only: [:index, :show]
 
  get '/login' => 'sessions#new'

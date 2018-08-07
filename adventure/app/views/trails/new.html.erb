@@ -1,13 +1,19 @@
 <h1>Add a new trail</h1>
 
-<%= form_for new_user_trail_path do |f| %>
+<%= form_for [current_user, @trail] do |f| %>
+    <div class="field">
+    <%= f.label :name %><br>
     <%= f.text_field :name %>
-    <%= f.label "Image:" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <%= f.file_field :image %>
-        
-      
-
-        <div class="actions">
-        <%= f.submit class: "btn btn-primary" %>
-      </div>
-    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

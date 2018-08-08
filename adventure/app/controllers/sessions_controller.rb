@@ -1,4 +1,9 @@
 class SessionsController < ApplicationController
+
+def destroy
+     session.clear
+    redirect_to root_path
+  end
   def new
     @user = User.new
 
@@ -12,5 +17,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
   end
+
+
 end
 end

@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
 
     belongs_to :user
-    belongs_to :park
+    belongs_to :trail
 
     validates :content, presence: true
 end

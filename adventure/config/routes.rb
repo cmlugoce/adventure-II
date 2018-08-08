@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
-  
-  
+
+
  root 'welcome#index'
 
- resources :users, only: [:new, :create, :show] do 
-  resources :trails, only: [:index, :new,  :edit]
+ resources :users do
+  shallow do
+   resources :trails do
+     resources :comments
+    end
+   end
+ end
+ #resources :trails, only: [:show, :create, :update, :destroy]
 
- end 
- resources :trails, only: [:show, :create, :update, :destroy]
-  
  resources :parks, only: [:index, :show]
 
  get '/login' => 'sessions#new'

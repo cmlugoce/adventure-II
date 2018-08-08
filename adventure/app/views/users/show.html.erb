@@ -1,17 +1,16 @@
 <h1>Adventures</h1>
 <% @user.trails.each do |trail| %>
-    <%= image_tag trail.image.url, class:'img-fluid' %><br><br>
-    <small class='user-link'>User: <%= link_to trail.user.name, user_path(trail.user) %></small>
-    <%= link_to trail.name, user_trail_path(current_user, trail), class:'name' %>
 
-    
-  
+    <%= trail.name %>
+    <%= trail.user.username %>
+    <%= trail.distance %>
+
+
+
+
     </div>
 
-    <% if current_user.trails.include?(trail) %>
-          <%= link_to "Edit Trail", edit_user_trail_path(current_user, trail), class: "edit-link" %>&nbsp;&nbsp;&nbsp;
-          <%= link_to "Delete Trail", user_trail_path(current_user, trail), :confirm => "Are you sure?", :method => :delete, class: "delete-link"%>
-        <% end %>
+
 
   <%end%>
 

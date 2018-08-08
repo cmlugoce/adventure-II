@@ -1,2 +1,22 @@
 <h1>Trails#edit</h1>
 <p>Find me in app/views/trails/edit.html.erb</p>
+<%= form_for  (@trail) do |f| %>
+    <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :distance %><br>
+    <%= f.number_field :distance %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.number_field :date %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :user_id, :value => current_user.id%>
+
+        <%= f.submit "Edit", class:"submit" %>
+<% end %>

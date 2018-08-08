@@ -1,6 +1,6 @@
 class Trail < ApplicationRecord
     belongs_to :user
-    belongs_to :parks
+    has_many  :comments
 
 
     mount_uploader :image, ImageUploader

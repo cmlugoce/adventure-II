@@ -1,6 +1,6 @@
 <h1>Add a new trail</h1>
 
-<%= form_for (@trail) do |f| %>
+<%= form_for [current_user, @trail] do |f| %>
     <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -20,4 +20,3 @@
 
         <%= f.submit "Create Trail", class:"submit" %>
 <% end %>
-

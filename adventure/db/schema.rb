@@ -10,19 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_06_230436) do
+ActiveRecord::Schema.define(version: 2018_08_08_232212) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.integer "user_id"
     t.integer "trail_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "parks", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,6 +38,12 @@ ActiveRecord::Schema.define(version: 2018_08_06_230436) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "uid"
+    t.string "image"
+    t.index ["image"], name: "index_users_on_image"
+    t.index ["name"], name: "index_users_on_name"
+    t.index ["uid"], name: "index_users_on_uid"
   end
 
 end

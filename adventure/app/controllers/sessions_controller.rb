@@ -20,4 +20,25 @@ def destroy
 
 
 end
+
+def facebook
+    if auth
+      @user = User.find_or_create_by(uid: auth['uid']) do |u|
+        u.name = auth['info']['name']
+        u.email = auth['info']['email']
+        u.remote_image_url = (auth['info']['image']).gsub('http://','https://')
+        u.password = params[:code][0..71]
+      end
+      session[:user_id] = @user.id
+     render 'welcome/index'
+    else
+      @user = User.new
+      render :new
+    end
+  end
+   private
+
+  def auth
+    request.env['omniauth.auth']
+  end
 end

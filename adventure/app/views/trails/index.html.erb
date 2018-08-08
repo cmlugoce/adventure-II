@@ -1,3 +1,9 @@
-<h1>Trails#create</h1>
-<p>Find me in app/views/trails/create.html.erb</p>
-<%= link_to "Add a new trail", new_user_trail_path %>
+<h1>All Trails</h1>
+
+<% @trails.each do |trail| %>
+
+<h2>Trail Name:<%= trail.name %></h2>
+<p>Posted by:<%= trail.user.username %></p>
+
+
+<% end %>

@@ -1,6 +1,6 @@
 <h1>Adventures</h1>
 <% @user.trails.each do |trail| %>
-
+    
     <%= trail.name %>
     <%= trail.user.username %>
     <%= trail.distance %>
@@ -15,6 +15,7 @@
   <%end%>
 
   <%= link_to "Home", root_path %> |
+  <%= link_to "Index", trails_path %> |
   <% if current_user %>
   <%= link_to "Add a new trail", new_user_trail_path(@user) %>
   <% end %>

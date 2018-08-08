@@ -1,2 +1,8 @@
-<h1>Parks#index</h1>
+<h1>Checkout the Parks</h1>
 <p>Find me in app/views/parks/index.html.erb</p>
+
+<% @parks.each do |p| %>
+    <%= p.name %>
+    <%= p.location %>
+
+    <% end %>

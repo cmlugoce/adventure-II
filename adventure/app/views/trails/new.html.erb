@@ -1,6 +1,6 @@
 <h1>Add a new trail</h1>
 
-<%= form_for [current_user, @trail] do |f| %>
+<%= form_for (@trail) do |f| %>
     <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -16,8 +16,8 @@
   <div class="field">
     <%= f.label :image %><br>
     <%= f.file_field :image %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.hidden_field :user_id, :value => current_user.id%>
+
+        <%= f.submit "Create Trail", class:"submit" %>
 <% end %>
+

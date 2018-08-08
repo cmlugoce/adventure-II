@@ -4,5 +4,5 @@ class Trail < ApplicationRecord
 
 
     mount_uploader :image, ImageUploader
-    validates_presence_of :name, :distance, :date, :image
+    validates_presence_of :name, :distance, :date#, :image
 end

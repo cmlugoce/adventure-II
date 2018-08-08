@@ -1,2 +1,7 @@
-<h1>Parks#show</h1>
+<h1>Trails in Park</h1>
 <p>Find me in app/views/parks/show.html.erb</p>
+<% @park.trails.each do |trail| %>
+
+    <%= trail.name %>
+
+    <% end %>

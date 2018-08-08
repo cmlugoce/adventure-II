@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   
-  get 'comments/create'
+  
  root 'welcome#index'
 
  resources :users, only: [:new, :create, :show] do 
-  resources :trails
+  resources :trails, only: [:index, :new,  :edit]
 
  end 
+ resources :trails, only: [:show, :create, :update, :destroy]
   
  resources :parks, only: [:index, :show]
 

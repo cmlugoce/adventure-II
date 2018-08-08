@@ -4,6 +4,7 @@
  <p class="item1">Date:&nbsp;&nbsp;&nbsp;<%= @trail.date %> </p><br>
   <p id="trail-links"><% if current_user.trails.include?(@trail) %>
       <%= link_to "Edit Trail", edit_trail_path(@trail), class: "edit-link" %>&nbsp;&nbsp;&nbsp;
+     <%= link_to "Delete Trail", trail_path(@trail), :confirm => "Are you sure?", :method => :delete, class: "delete-link"%>
 
     <% end %></p>
 

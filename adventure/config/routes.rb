@@ -10,9 +10,9 @@ Rails.application.routes.draw do
     end
    end
  end
- #resources :trails, only: [:show, :create, :update, :destroy]
+ resources :trails, only: [:index]
 
- resources :parks, only: [:index, :show]
+
 
  get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

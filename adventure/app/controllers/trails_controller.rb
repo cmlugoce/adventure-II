@@ -32,7 +32,7 @@ class TrailsController < ApplicationController
   def update
     @trail.update(trail_params)
     if @trail.save
-      redirect_to  trail_path(@trail)
+      redirect_to trail_path(@trail)
     else
       render :edit
     end
@@ -40,8 +40,8 @@ class TrailsController < ApplicationController
   end
 
   def destroy
-    trail.destroy
-    redirect_to trail_path
+    @trail.destroy
+    redirect_to trails_path
 
   end
 

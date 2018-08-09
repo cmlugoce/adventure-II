@@ -1,21 +1,31 @@
 <h1>Adventures</h1>
 <% @user.trails.each do |trail| %>
-    <%= image_tag trail.image.url, class:'img-fluid' %><br><br>
-    <small class='user-link'>User: <%= link_to trail.user.name, user_path(trail.user) %></small>
-    <%= link_to trail.name, user_trail_path(current_user, trail), class:'name' %>
-
     
-  
+    <%= trail.name %>
+    <%= trail.user.username %>
+    <%= trail.distance %>
+
+
+
+
     </div>
 
-    <% if current_user.trails.include?(trail) %>
-          <%= link_to "Edit Trail", edit_user_trail_path(current_user, trail), class: "edit-link" %>&nbsp;&nbsp;&nbsp;
-          <%= link_to "Delete Trail", user_trail_path(current_user, trail), :confirm => "Are you sure?", :method => :delete, class: "delete-link"%>
-        <% end %>
+
 
   <%end%>
 
   <%= link_to "Home", root_path %> |
+  <%= link_to "Index", trails_path %> |
   <% if current_user %>
   <%= link_to "Add a new trail", new_user_trail_path(@user) %>
   <% end %>
+
+  <% if session[:user_id] %>
+  <h1><%= @user.name %></h1>
+  <h2>Email: <%= @user.email %></h2>
+  <h2>Facebook UID: <%= @user.uid %></h2>
+  <img src="<%= @user.image %>">
+<% else %>
+  <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+<% end %>
+

@@ -1,26 +1,29 @@
 class TrailsController < ApplicationController
-  
+
   before_action :set_trail, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @trails = Trail.all
-  end 
-  
+  end
+
   def new
     @trail = Trail.new
+
   end
 
   def show
+    @comment = @trail.comments.new
+    @comment.trail_id = @trail.id
   end
 
   def create
     @trail = Trail.new(trail_params)
-    if @trail.save
+    if @trail.save!
       redirect_to trail_path(@trail)
 
     else
-      render :new 
-    end 
+      render :new
+    end
   end
 
   def edit
@@ -28,28 +31,33 @@ class TrailsController < ApplicationController
 
   def update
     @trail.update(trail_params)
+<<<<<<< HEAD
     if @trail.save 
       redirect_to user_trail_path(@trail)
+=======
+    if @trail.save
+      redirect_to trail_path(@trail)
+>>>>>>> ae59810852a48791642e8d529d1b46a3e0d1c8d5
     else
-      render :edit 
-    end 
+      render :edit
+    end
 
   end
 
-  def destroy 
-    trail.destroy
-    redirect_to trail_path 
+  def destroy
+    @trail.destroy
+    redirect_to trails_path
 
-  end 
+  end
 
-  private 
+  private
 
   def set_trail
     @trail = Trail.find_by_id(params[:id])
 
-  end 
+  end
 
   def trail_params
     params.require(:trail).permit(:name, :image, :distance, :date, :notes, :user_id, :park_id )
-  end 
+  end
 end

@@ -29,7 +29,7 @@ class TrailsController < ApplicationController
   def update
     @trail.update(trail_params)
     if @trail.save 
-      redirect_to user_trails_path
+      redirect_to user_trail_path(@trail)
     else
       render :edit 
     end 
